@@ -1,0 +1,175 @@
+/*-----------------------------------------
+mixins
+-----------------------------------------*/
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+}
+
+@mixin home-gradient {
+  background: -webkit-linear-gradient(30deg, #54a4db 20%, #ffa3ff 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(30deg, #54a4db 20%, #ffa3ff 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(30deg, #54a4db 20%, #ffa3ff 90%); /* IE10 */
+  background:      -o-linear-gradient(30deg, #54a4db 20%, #ffa3ff 90%); /* Opera 11.10+ */
+  background:         linear-gradient(30deg, #54a4db 20%, #ffa3ff 90%); /* W3C */
+}
+
+
+@mixin side-gradient {
+  background: -webkit-linear-gradient(90deg, #ffa3ff 10%, #54a4db 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #ffa3ff 10%, #54a4db 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #ffa3ff 10%, #54a4db 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #ffa3ff 10%, #54a4db 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #ffa3ff 10%, #54a4db 90%); /* W3C */
+}
+
+
+.fade-in {
+    -webkit-animation: fadein 1.5s; /* Safari and Chrome */
+       -moz-animation: fadein 1.5s; /* Firefox */
+        -ms-animation: fadein 1.5s; /* Internet Explorer */
+            animation: fadein 1.5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}​
+
+/*-----------------------------------------
+Body
+-----------------------------------------*/
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  text-align: center;
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.gradient {
+  @include home-gradient;
+  background-size: 150% 150%;
+  min-height: 100vh;
+  min-width: 100vw;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.gradient-animate {
+  -webkit-animation: GradientAnimation 10s ease alternate infinite;
+  -moz-animation: GradientAnimation 10s ease alternate infinite;
+  -o-animation: GradientAnimation 10s ease alternate infinite;
+  animation: GradientAnimation 10s ease alternate infinite;
+}
+
+@-webkit-keyframes GradientAnimation {
+    0%{background-position:0% 68%}
+    50%{background-position:100% 33%}
+    100%{background-position:0% 68%}
+}
+@-moz-keyframes GradientAnimation {
+    0%{background-position:0% 68%}
+    50%{background-position:100% 33%}
+    100%{background-position:0% 68%}
+}
+@-o-keyframes GradientAnimation {
+    0%{background-position:0% 68%}
+    50%{background-position:100% 33%}
+    100%{background-position:0% 68%}
+}
+@keyframes GradientAnimation { 
+    0%{background-position:0% 68%}
+    50%{background-position:100% 33%}
+    100%{background-position:0% 68%}
+}
+
+.home-body-center {
+  text-align: center;
+  @include vertical-align;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+
+.home-issue-header {
+  text-align: left;
+  padding-left: 22px; 
+}
+
+.artist-name {
+  display: inline-block;
+  width: auto;
+  padding: 20px;
+  padding-top: 0px;
+  margin-top: 0px;
+  &:hover {
+    color: white;
+  }
+}
+
+.artist-name-contain {
+  display: inline-block;
+  width: 33%;
+  &:first-of-type {
+    text-align: left;
+  }
+  &:last-of-type {
+    text-align: right;
+  }
+}
+
+.home-menu {
+  width: 200px;
+  height: auto;
+  padding-bottom: 50px;
+  background-color: black;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: none;
+  color: white;
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
+  z-index: 600;
+  ul {
+    list-style: none;
+    margin-top: 150px;
+    text-align: left;
+    padding-left: 30px;
+    li {
+      margin-top: 20px; 
+    }
+  }
+}
