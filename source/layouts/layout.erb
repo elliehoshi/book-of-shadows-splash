@@ -10,13 +10,12 @@
         <title><%= current_page.data.title || "HTML5 Boilerplate" %></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <link href='//fonts.googleapis.com/css?family=Jacques+Francois|Karla:400,700' rel='stylesheet' type='text/css'>
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
+        <%= stylesheet_link_tag "normalize" %>
+        <%= stylesheet_link_tag "main" %>
         <%= stylesheet_link_tag "styles" %>
-        <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+        <%= javascript_include_tag "../js/vendor/modernizr-2.6.1.min.js" %>
     </head>
     <body class="fade-in">
         <!--[if lt IE 7]>
