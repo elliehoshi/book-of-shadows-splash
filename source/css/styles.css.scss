@@ -24,11 +24,11 @@ $bs-dark-blue: darken($bs-blue, 10%);
 
 
 @mixin text-gradient {
-  background: -webkit-linear-gradient(90deg, $bs-dark-blue 10%, $bs-dark-pink 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, $bs-dark-blue 10%, $bs-dark-pink 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(90deg, $bs-dark-blue 10%, $bs-dark-pink 90%); /* IE10 */
-  background:      -o-linear-gradient(90deg, $bs-dark-blue 10%, $bs-dark-pink 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, $bs-dark-blue 10%, $bs-dark-pink 90%); /* W3C */
+  background: -webkit-linear-gradient(140deg, $bs-dark-blue 10%, $bs-dark-pink 70%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(140deg, $bs-dark-blue 10%, $bs-dark-pink 70%); /* FF3.6+ */
+  background:     -ms-linear-gradient(140deg, $bs-dark-blue 10%, $bs-dark-pink 70%); /* IE10 */
+  background:      -o-linear-gradient(140deg, $bs-dark-blue 10%, $bs-dark-pink 70%); /* Opera 11.10+ */
+  background:         linear-gradient(140deg, $bs-dark-blue 10%, $bs-dark-pink 70%); /* W3C */
 }
 
 
@@ -123,15 +123,15 @@ a {
   @include vertical-align;
     padding: 40px;
     @include text-gradient;
+    width: 50%;
+    min-width: 500px;
+    margin: 0 auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   h1 {
     font-family: 'Jacques Francois', serif;
-    width: 50%;
-    min-width: 500px;
     text-transform: uppercase;
-    font-size: 6em;
-    margin: 0 auto;
+    font-size: 5em;
     line-height: 1em;
   }
   h4 {
