@@ -22,13 +22,13 @@ $bs-dark-blue: darken($bs-blue, 10%);
   background:         linear-gradient(30deg, $bs-blue 20%, $bs-pink 90%); /* W3C */
 }
 
-
+// -webkit-linear-gradient( left, #00ffff 0%, #97fba0 25%, #97b1fb 50%, #00ffff 100% ) repeat
 @mixin text-gradient {
-  background: -webkit-linear-gradient(140deg, $bs-dark-blue 10%, $bs-dark-pink 70%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(140deg, $bs-dark-blue 10%, $bs-dark-pink 70%); /* FF3.6+ */
-  background:     -ms-linear-gradient(140deg, $bs-dark-blue 10%, $bs-dark-pink 70%); /* IE10 */
-  background:      -o-linear-gradient(140deg, $bs-dark-blue 10%, $bs-dark-pink 70%); /* Opera 11.10+ */
-  background:         linear-gradient(140deg, $bs-dark-blue 10%, $bs-dark-pink 70%); /* W3C */
+  background: -webkit-linear-gradient(left, $bs-dark-blue 0%, $bs-dark-pink 50%, $bs-dark-blue 100%) repeat; /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(left, $bs-dark-blue 0%, $bs-dark-pink 50%, $bs-dark-blue 100%) repeat; /* FF3.6+ */
+  background:     -ms-linear-gradient(left, $bs-dark-blue 0%, $bs-dark-pink 50%, $bs-dark-blue 100%) repeat; /* IE10 */
+  background:      -o-linear-gradient(left, $bs-dark-blue 0%, $bs-dark-pink 50%, $bs-dark-blue 100%) repeat; /* Opera 11.10+ */
+  background:         linear-gradient(left, $bs-dark-blue 0%, $bs-dark-pink 50%, $bs-dark-blue 100%) repeat; /* W3C */
 }
 
 
@@ -62,6 +62,32 @@ $bs-dark-blue: darken($bs-blue, 10%);
     to   { opacity: 1; }
 }​
 
+.scalex {
+}
+    
+@-webkit-keyframes scalex{
+    from {-webkit-transform: scale(0.9);}
+    65% {-webkit-transform: scale(1.0);}
+    to {-webkit-transform: scale(0.9);}    
+}
+    
+@-moz-keyframes scale{
+    from {-moz-transform: scale(0.9);}
+    65% {-moz-transform: scale(1.0);}
+    to {-moz-transform: scale(0.9);}    
+}
+
+.scalex {
+  -webkit-animation-name: scalex;
+  -webkit-animation-duration:5s;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-timing-function:ease-in;
+  -moz-animation-name: scale;
+  -moz-animation-duration:5s;
+  -moz-animation-iteration-count:infinite;
+  -moz-animation-timing-function:ease-in;
+  -webkit-transform-origin: 50% 50%;
+}
 /*-----------------------------------------
 Body
 -----------------------------------------*/
@@ -118,16 +144,50 @@ a {
     100%{background-position:0% 68%}
 }
 
+@mixin gradient-text-animate {
+  -webkit-animation: masked-animation 50s linear infinite;
+  -moz-animation: masked-animation 50s linear infinite;
+  -o-animation: masked-animation 50s linear infinite;
+  animation: masked-animation 50s linear infinite;
+}
+
+@-webkit-keyframes masked-animation {
+  0% { background-position: 0 0;} 
+  00% {background-position: -4000px -1000px;}
+}
+
+@-moz-keyframes masked-animation {
+  0% { background-position: 0 0;} 
+  00% {background-position: -4000px -1000px;}
+}
+
+@-o-keyframes masked-animation {
+  0% { background-position: 0 0;} 
+  00% {background-position: -4000px -1000px;}
+}
+
+@keyframes masked-animation {
+  0% { background-position: 0 0;} 
+  00% {background-position: -4000px -1000px;}
+}
+
 .home-body-center {
-  text-align: center;
   @include vertical-align;
-    padding: 40px;
-    @include text-gradient;
-    width: 50%;
-    min-width: 500px;
-    margin: 0 auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  @include text-gradient;
+  @include gradient-text-animate;
+  padding: 40px 0 40px 0;
+  text-align: center;
+  width: 50%;
+  min-width: 500px;
+  margin: 0 auto;
+  -webkit-background-clip: text;
+  -ms-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -ms-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  text-fill-color: transparent;
   h1 {
     font-family: 'Jacques Francois', serif;
     text-transform: uppercase;
@@ -156,53 +216,15 @@ a {
 }
 
 
-.home-issue-header {
-  text-align: left;
-  padding-left: 22px; 
+.teaser {
+  margin: 1em auto;
 }
 
-.artist-name {
-  display: inline-block;
-  width: auto;
-  padding: 20px;
-  padding-top: 0px;
-  margin-top: 0px;
-  &:hover {
-    color: white;
-  }
+.teaser-image {
+  width: 20em;
+  margin: 0 auto;
 }
 
-.artist-name-contain {
-  display: inline-block;
-  width: 33%;
-  &:first-of-type {
-    text-align: left;
-  }
-  &:last-of-type {
-    text-align: right;
-  }
-}
-
-.home-menu {
-  width: 200px;
-  height: auto;
-  padding-bottom: 50px;
-  background-color: black;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  display: none;
-  color: white;
-  border-bottom: 1px solid white;
-  border-right: 1px solid white;
-  z-index: 600;
-  ul {
-    list-style: none;
-    margin-top: 150px;
-    text-align: left;
-    padding-left: 30px;
-    li {
-      margin-top: 20px; 
-    }
-  }
+.teaser-image > svg {
+  max-width: 100%;
 }
