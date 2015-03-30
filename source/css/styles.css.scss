@@ -22,16 +22,6 @@ $bs-dark-blue: darken($bs-blue, 10%);
   background:         linear-gradient(30deg, $bs-blue 20%, $bs-pink 90%); /* W3C */
 }
 
-// -webkit-linear-gradient( left, #00ffff 0%, #97fba0 25%, #97b1fb 50%, #00ffff 100% ) repeat
-@mixin text-gradient {
-  background: -webkit-linear-gradient(left, $bs-dark-blue 0%, $bs-dark-pink 50%, $bs-dark-blue 100%) repeat; /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(left, $bs-dark-blue 0%, $bs-dark-pink 50%, $bs-dark-blue 100%) repeat; /* FF3.6+ */
-  background:     -ms-linear-gradient(left, $bs-dark-blue 0%, $bs-dark-pink 50%, $bs-dark-blue 100%) repeat; /* IE10 */
-  background:      -o-linear-gradient(left, $bs-dark-blue 0%, $bs-dark-pink 50%, $bs-dark-blue 100%) repeat; /* Opera 11.10+ */
-  background:         linear-gradient(left, $bs-dark-blue 0%, $bs-dark-pink 50%, $bs-dark-blue 100%) repeat; /* W3C */
-}
-
-
 .fade-in {
     -webkit-animation: fadein 1.5s; /* Safari and Chrome */
        -moz-animation: fadein 1.5s; /* Firefox */
@@ -61,33 +51,6 @@ $bs-dark-blue: darken($bs-blue, 10%);
     from { opacity: 0; }
     to   { opacity: 1; }
 }​
-
-.scalex {
-}
-    
-@-webkit-keyframes scalex{
-    from {-webkit-transform: scale(0.9);}
-    65% {-webkit-transform: scale(1.0);}
-    to {-webkit-transform: scale(0.9);}    
-}
-    
-@-moz-keyframes scale{
-    from {-moz-transform: scale(0.9);}
-    65% {-moz-transform: scale(1.0);}
-    to {-moz-transform: scale(0.9);}    
-}
-
-.scalex {
-  -webkit-animation-name: scalex;
-  -webkit-animation-duration:5s;
-  -webkit-animation-iteration-count:infinite;
-  -webkit-animation-timing-function:ease-in;
-  -moz-animation-name: scale;
-  -moz-animation-duration:5s;
-  -moz-animation-iteration-count:infinite;
-  -moz-animation-timing-function:ease-in;
-  -webkit-transform-origin: 50% 50%;
-}
 
 /*-----------------------------------------
 Body
@@ -170,17 +133,4 @@ a {
 
 .hidden {
   visibility: hidden;
-}
-
-.teaser {
-  margin: 1em auto;
-}
-
-.teaser-image {
-  width: 20em;
-  margin: 0 auto;
-}
-
-.teaser-image > svg {
-  max-width: 100%;
 }
